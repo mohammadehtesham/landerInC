@@ -1,0 +1,68 @@
+Name:               Mohammad Ehtesham
+OneCard:            1272185
+ID:                 mehtesha
+Lecture Section:    EB1
+Instructor's Name:  Jacqueline Smith
+Lab Section:        EH01
+TA's name:          Rong Feng           
+
+ACKNOWLEDGEMENTS: Code used from timer.c provided on eClass for blocking signals and setting up timer
+
+
+File submitted in submit.tar includes:
+         
+lander.c
+functions.c
+lander.h
+Makefile
+README
+landscape.txt
+
+NOTE:
+Files required to compile (in addition to those in submit.tar):
+Sketchpad.jar
+
+All the above files have to be in the same directory for successful compilation.
+
+NOTE:
+Arguments -g (# representing gravity) -f (name of file = landscape.txt) -t (negative thrust that is opposite to gravity) are required.
+Include -i for running the improved version (You DEFINITELY want to, trust me!)
+
+./lander -f landscape.txt -t -18 -g 9.8
+./lander -f landscape.txt -t -18 -g 9.8 -i
+
+These arguments can be entered in any order.
+
+IMPROVEMENTS:
+General improvements:
+	Command line arg checks allow flags and arguments to be entered in any order
+	Provides details about which command has been entered incorrectly
+	Code also ensures that the limits of gravity fall between 0 and 20 (inclusive) and thrust between -20 and 0 (inclusive)
+	Prevents the ship from going outside the window from left or right edges, wrapping around the right and left edges after it disappears;
+
+Improvements with the -i flag:
+
+    Makes the game more thrilling
+	Gives you a specific amount of fuel (displays in Sketchpad) and numerical value in terminal
+	Shows the time used
+	Gives scores based on the landing speed
+
+Game operates as required under Assignment 3 requirements:
+	Landing a spacecraft
+	Slow landing for success
+	Aligned to ground
+	Ground for landing has to be level
+	Improvements with -i flag as mentioned above ^^
+
+For the developer, here's an explanation of how the code works:
+
+ - Makefile used to compile all relevant files quickly and to clean
+ - Files: lander.c (contains main function), lander.h (contains header files), functions.c (contains the functions that are called by the main function or any other functions to execute the code), functions.h (header file)
+ - In the main function, all the required inputs, variables, streams and pipes are initialized
+ - Initializing improvement flag by storing in variable I
+ - Using getch(), keystrokes are captured and then analyzed, as required
+ - ship points are analyzed (1-4 are for ship points, 5 is for flame)
+ - These points are then plotted using draw_line under draw_ship
+ - Left arrow causes ship to turn counterclockwise by 10 degrees, right clockwise, space for thrust and q to quit
+ - Each time the coordinates of the ship change, it is completely erased and then plotted again after the relevant actions
+..... RUNNING OUT OF TIME... 
